@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hệ thống quản lý mạng CHATL</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <aside>
+      
+
+      <div class="logo">CHATL</div>
+      <h3>Danh mục</h3>
+      <ul>
+        <li><a href="#">Trang chủ</a></li>
+        <li><a href="#">Giới thiệu</a></li>
+        <li><a href="#">Sản phẩm</a></li>
+        <li><a href="#">Thiết bị mạng</a></li>
+        <li><a href="#">Switch PoE</a></li>
+        <li><a href="#">Giám sát hiệu suất</a></li>
+        <li><a href="#">Báo cáo lỗi</a></li>
+        <li><a href="#">Tòa nhà - 30 tầng</a></li>
+        <li><a href="#">Liên hệ</a></li>
+      </ul>
+    </aside>
+
+    <main class="content">
+      <div id="monitorSection" class="chart-container" style="display: none;">
+        <h3>Giám sát Tải CPU & RAM</h3>
+        <canvas id="cpuChart"></canvas>
+        <canvas id="ramChart" style="margin-top: 30px;"></canvas>
+      </div>
+      
+      <div class="chart-container">
+        <h3>Giám sát Tải CPU & RAM</h3>
+        <canvas id="cpuChart"></canvas>
+        <canvas id="ramChart" style="margin-top: 30px;"></canvas>
+      </div>
+      
+      <h2>Trang chủ</h2>
+      <div class="card">
+        <p>Chào mừng bạn đến với hệ thống quản lý mạng <strong>CHATL</strong>. Đây là trung tâm giám sát và điều khiển mạng cho tòa nhà cao tầng, cung cấp công cụ hiện đại giúp theo dõi hiệu suất mạng và xử lý sự cố nhanh chóng.</p>
+      </div>
+    </main>
+  </div>
+
+  <footer>
+    © 2025 CHATL - All rights reserved.
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  const cpuCtx = document.getElementById('cpuChart').getContext('2d');
+  const ramCtx = document.getElementById('ramChart').getContext('2d');
+
+  const cpuChart = new Chart(cpuCtx, {
+    type: 'line',
+    data: {
+      labels: ['T0', 'T1', 'T2', 'T3', 'T4'],
+      datasets: [{
+        label: 'CPU Usage (%)',
+        data: [35, 45, 60, 50, 65],
+        backgroundColor: 'rgba(112, 161, 255, 0.2)',
+        borderColor: '#70a1ff',
+        borderWidth: 2,
+        fill: true,
+        tension: 0.3
+      }]
+    },
+    options: {
+      responsive: true,
+      scales: {
+        y: { beginAtZero: true, max: 100 }
+      }
+    }
+  });
+
+  const ramChart = new Chart(ramCtx, {
+    type: 'line',
+    data: {
+      labels: ['T0', 'T1', 'T2', 'T3', 'T4'],
+      datasets: [{
+        label: 'RAM Usage (%)',
+        data: [55, 60, 70, 68, 72],
+        backgroundColor: 'rgba(255, 159, 64, 0.2)',
+        borderColor: 'rgb(255, 159, 64)',
+        borderWidth: 2,
+        fill: true,
+        tension: 0.3
+      }]
+    },
+    options: {
+      responsive: true,
+      scales: {
+        y: { beginAtZero: true, max: 100 }
+      }
+    }
+  });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  function showSection(sectionId) {
+    // Ẩn tất cả phần nội dung (nếu có nhiều phần)
+    document.querySelectorAll('main.content > div').forEach(div => {
+      div.style.display = 'none';
+    });
+
+    // Hiện phần được chọn
+    const section = document.getElementById(sectionId + 'Section');
+    if (section) {
+      section.style.display = 'block';
+    }
+
+    // Khởi tạo biểu đồ nếu chưa có
+    if (sectionId === 'monitor' && !window.chartsInitialized) {
+      const cpuCtx = document.getElementById('cpuChart').getContext('2d');
+      const ramCtx = document.getElementById('ramChart').getContext('2d');
+
+      new Chart(cpuCtx, {
+        type: 'line',
+        data: {
+          labels: ['T0', 'T1', 'T2', 'T3', 'T4'],
+          datasets: [{
+            label: 'CPU Usage (%)',
+            data: [35, 45, 60, 50, 65],
+            backgroundColor: 'rgba(112, 161, 255, 0.2)',
+            borderColor: '#70a1ff',
+            borderWidth: 2,
+            fill: true,
+            tension: 0.3
+          }]
+        },
+        options: {
+          responsive: true,
+          scales: {
+            y: { beginAtZero: true, max: 100 }
+          }
+        }
+      });
+
+      new Chart(ramCtx, {
+        type: 'line',
+        data: {
+          labels: ['T0', 'T1', 'T2', 'T3', 'T4'],
+          datasets: [{
+            label: 'RAM Usage (%)',
+            data: [55, 60, 70, 68, 72],
+            backgroundColor: 'rgba(255, 159, 64, 0.2)',
+            borderColor: 'rgb(255, 159, 64)',
+            borderWidth: 2,
+            fill: true,
+            tension: 0.3
+          }]
+        },
+        options: {
+          responsive: true,
+          scales: {
+            y: { beginAtZero: true, max: 100 }
+          }
+        }
+      });
+
+      window.chartsInitialized = true;
+    }
+  }
+</script>
+
+<script>
+  document.getElementById('performance-link').addEventListener('click', function(e) {
+    e.preventDefault();
+    document.querySelector('.chart-container').classList.toggle('show');
+  });
+</script>
+
+</body>
+</html>
