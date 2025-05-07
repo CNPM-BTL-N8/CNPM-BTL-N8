@@ -1,4 +1,18 @@
+## 🧾 Commit cuối cùng
+
+Dự án sử dụng kiến trúc phần mềm **Layered Architecture** (Kiến trúc phân lớp).
+
+Lệnh Git đã sử dụng để commit cuối cùng theo yêu cầu:
+
+```bash
+git add .
+git commit -m "Layered Architecture"
+git push origin main
+
+
+
 Dự Án Hệ Thống Quản Lý Mạng :
+
 Hệ thống Quản lý Mạng CHATL – Giải pháp toàn diện cho giám sát hạ tầng số
 Trong thời đại số hóa ngày càng mạnh mẽ, việc đảm bảo sự ổn định, an toàn và hiệu quả của hạ tầng mạng trở thành một yêu cầu tất yếu đối với mọi tổ chức, doanh nghiệp và cơ sở công nghệ. Hiểu rõ điều đó, chúng tôi đã phát triển CHATL – một nền tảng quản lý mạng hiện đại, thông minh và mạnh mẽ, giúp bạn kiểm soát toàn bộ hệ thống mạng trong tầm tay.
 
