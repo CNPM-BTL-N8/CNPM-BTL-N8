@@ -1,6 +1,46 @@
 ## 🧾 Commit cuối cùng
 
 Dự án sử dụng kiến trúc phần mềm **Layered Architecture** (Kiến trúc phân lớp).
+project/
+├── models/
+│   ├── Device.js
+│   ├── Network.js
+│   ├── User.js
+│   ├── Alert.js
+│   ├── Performance.js
+│   ├── Configuration.js
+│   ├── SecurityLog.js
+│   └── Report.js
+├── controllers/
+│   ├── deviceController.js
+│   ├── networkController.js
+│   ├── monitoringController.js
+│   ├── securityController.js
+│   ├── reportController.js
+│   └── userController.js
+├── routes/
+│   ├── device.js
+│   ├── network.js
+│   ├── monitoring.js
+│   ├── security.js
+│   ├── report.js
+│   └── user.js
+├── public/
+│   ├── css/
+│   │   └── style.css
+│   ├── js/
+│   │   ├── dashboard.js
+│   │   ├── monitoring.js
+│   │   ├── devices.js
+│   │   ├── network.js
+│   │   └── reports.js
+│   └── index.html
+├── config/
+│   └── db.js
+├── middleware/
+│   ├── auth.js
+│   └── logger.js
+└── server.js
 
 Lệnh Git đã sử dụng để commit cuối cùng theo yêu cầu:
 
